@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage and track your job applications with ApplyTrack.">
+    <title>ApplyTrack | Dashboard</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <a href="dashboard.html" class="brand">
+            <span class="brand-icon">A</span>
+            <span>ApplyTrack</span>
+        </a>
+
+        <button type="button" id="sign-out" class="btn btn-secondary">
+            Sign out
+        </button>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="dashboard-welcome">
+            <div>
+                <h1>Welcome, <span id="user-name"></span></h1>
+                <p>Keep track of your applications and your next steps.</p>
+            </div>
+
+            <button type="button" id="add-application" class="btn btn-primary">
+                + Add application
+            </button>
+        </section>
+
+        <section class="stats-grid" aria-label="Application summary">
+            <article class="stat-card">
+                <p>Total applications</p>
+                <h2 id="total-count">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Interviews</p>
+                <h2 id="interview-count">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Offers</p>
+                <h2 id="offer-count">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Follow-ups due</p>
+                <h2 id="follow-up-count">0</h2>
+            </article>
+        </section>
+
+        <section class="applications-section">
+            <div class="section-heading">
+                <div>
+                    <h2>My applications</h2>
+                    <p>All your job opportunities in one place.</p>
+                </div>
+
+                <label class="filter-control" for="status-filter">
+                    Filter by status
+                    <select id="status-filter">
+                        <option value="all">All applications</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Assessment">Assessment</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Withdrawn">Withdrawn</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="applications-list" class="applications-list">
+                <div class="empty-state">
+                    <h3>Your job search starts here</h3>
+                    <p>Add your first application to start tracking your progress.</p>
+                    <button type="button" id="empty-add-application" class="btn btn-primary">
+                        Add your first application
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="modal-overlay" id="application-form-section" hidden>
+            <div class="application-modal" role="dialog" aria-modal="true" aria-labelledby="application-form-title">
+                <div class="modal-header">
+                    <div>
+                        <span class="modal-eyebrow">APPLICATION DETAILS</span>
+                        <h2 id="application-form-title">Add an application</h2>
+                        <p>Keep your job search organised.</p>
+                    </div>
+
+                    <button type="button" id="close-application-modal" class="modal-close"
+                        aria-label="Close application form">&times;</button>
+                </div>
+
+                <form id="application-form">
+                    <input type="hidden" id="application-id">
+
+                    <div class="form-group">
+                        <label for="company">Company name</label>
+                        <input id="company" name="company" type="text" placeholder="e.g. Acme Ltd" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Job title</label>
+                        <input id="role" name="role" type="text" placeholder="e.g. Compliance Analyst" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date-applied">Date applied</label>
+                        <input id="date-applied" name="date-applied" type="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-link">Job posting link (optional)</label>
+                        <input id="job-link" name="job-link" type="url" placeholder="https://example.com/job">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Application status</label>
+                        <select id="status" name="status" required>
+                            <option value="Applied">Applied</option>
+                            <option value="Assessment">Assessment</option>
+                            <option value="Interview">Interview</option>
+                            <option value="Offer">Offer</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Withdrawn">Withdrawn</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="follow-up-date">Follow-up date (optional)</label>
+                        <input id="follow-up-date" name="follow-up-date" type="date">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">Notes (optional)</label>
+                        <textarea id="notes" name="notes" placeholder="Interview details or reminders"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Save application
+                        </button>
+                        <button type="button" id="cancel-application" class="btn btn-secondary">
+                            Cancel
+                        </button>
+                    </div>
+
+                    <p id="application-message" class="form-message" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

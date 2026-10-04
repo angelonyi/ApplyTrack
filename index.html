@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ApplyTrack helps you organise and track your job applications.">
+    <title>ApplyTrack | Sign In</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="auth-container">
+        <section class="auth-card">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">A</span>
+                <span>ApplyTrack</span>
+            </a>
+
+            <div class="auth-heading">
+                <h1 id="auth-title">Welcome back</h1>
+                <p id="auth-description">Sign in to keep your job search organised.</p>
+            </div>
+
+
+            <form id="auth-form">
+                <div class="form-group" id="full-name-group" hidden>
+                    <label for="full-name">Full name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name"
+                        autocomplete="name" minlength="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
+                        required>
+                    <small id="email-feedback" class="field-feedback" aria-live="polite"></small>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" placeholder="Enter your password"
+                            autocomplete="current-password" minlength="6" required>
+
+                        <button type="button" id="toggle-password-visibility" class="password-toggle"
+                            aria-label="Show password" aria-pressed="false">
+                            👁
+                        </button>
+                    </div>
+
+                    <small id="password-feedback" class="field-feedback"></small>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="auth-submit">
+                    Sign in
+                </button>
+
+                <p id="auth-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="auth-switch">
+                <span id="auth-switch-text">Don't have an account?</span>
+                <button type="button" id="auth-toggle" class="text-button">
+                    Create account
+                </button>
+            </p>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

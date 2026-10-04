@@ -1,0 +1,1031 @@
+/* ApplyTrack — clean, responsive stylesheet */
+:root {
+    --at-blue: #2563eb;
+    --at-blue-dark: #1d4ed8;
+    --at-teal: #0f8292;
+    --at-green: #15803d;
+    --at-amber: #d97706;
+    --at-ink: #1e293b;
+    --at-muted: #64748b;
+    --at-border: #dce5ef;
+    --at-bg: #f5f8fc;
+    --at-soft-blue: #eff6ff;
+    --at-shadow: 0 5px 18px rgba(30, 41, 59, .045)
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+[hidden] {
+    display: none !important
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: clip;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: var(--md-sys-color-on-surface, var(--at-ink));
+    background: var(--md-sys-color-background, var(--at-bg));
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+a {
+    color: var(--md-sys-color-primary, var(--at-blue))
+}
+
+:focus-visible {
+    outline: 3px solid #67e8f9;
+    outline-offset: 3px
+}
+
+/* Buttons and brand */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: .9rem;
+    font-weight: 650;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: background .16s, border-color .16s, box-shadow .16s, transform .16s
+}
+
+.btn:hover {
+    transform: translateY(-1px)
+}
+
+.btn-primary {
+    color: #fff;
+    background: var(--md-sys-color-primary, var(--at-blue));
+    box-shadow: 0 2px 5px #2563eb22
+}
+
+.btn-primary:hover {
+    background: var(--at-blue-dark)
+}
+
+.btn-secondary {
+    width: auto;
+    color: var(--at-ink);
+    background: #fff;
+    border-color: #d5deea
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #9bb4d3
+}
+
+.btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--md-sys-color-primary, var(--at-blue));
+    font-size: 1.25rem;
+    font-weight: 750;
+    letter-spacing: -.04em;
+    text-decoration: none;
+    white-space: nowrap
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--md-sys-color-primary, var(--at-blue));
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 750
+}
+
+/* Auth pages */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 18px;
+    background: radial-gradient(ellipse at top, #dbeafe 0%, transparent 48%), var(--at-bg)
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 34px;
+    border: 1px solid var(--at-border);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 16px 45px #1e293b12
+}
+
+.auth-card .brand {
+    display: flex;
+    margin-bottom: 28px
+}
+
+.auth-heading {
+    margin-bottom: 25px;
+    text-align: center
+}
+
+.auth-heading h1 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    letter-spacing: -.04em
+}
+
+.auth-heading p,
+.auth-switch {
+    color: var(--at-muted)
+}
+
+.auth-heading p {
+    font-size: .94rem
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 15px
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .86rem;
+    font-weight: 650;
+    color: #334155
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.application-form-section textarea,
+.filter-control select {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--at-ink);
+    font-size: .92rem;
+    transition: border-color .16s, box-shadow .16s
+}
+
+.form-group textarea,
+.application-form-section textarea {
+    min-height: 90px;
+    resize: vertical
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.filter-control select:focus {
+    outline: none;
+    border-color: var(--at-blue);
+    box-shadow: 0 0 0 3px #2563eb1f
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8
+}
+
+.auth-card .btn-primary {
+    width: 100%;
+    margin-top: 4px
+}
+
+.form-message {
+    margin-top: 10px;
+    font-size: .86rem
+}
+
+.auth-switch {
+    margin-top: 22px;
+    font-size: .9rem;
+    text-align: center
+}
+
+.text-button {
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    color: var(--at-blue);
+    font-weight: 700
+}
+
+.text-button:hover {
+    text-decoration: underline
+}
+
+/* Dashboard header and layout */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 72px;
+    padding: 14px max(24px, calc((100% - 1200px)/2));
+    border-bottom: 1px solid var(--at-border);
+    background: #fff
+}
+
+.dashboard-header .brand {
+    justify-content: flex-start
+}
+
+.dashboard-container {
+    width: min(1200px, calc(100% - 48px));
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 32px 0 56px
+}
+
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 26px
+}
+
+.dashboard-welcome h1 {
+    margin: 0 0 6px;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    line-height: 1.2;
+    letter-spacing: -.04em
+}
+
+.dashboard-welcome p,
+.section-heading p {
+    color: var(--at-muted);
+    font-size: .95rem
+}
+
+.dashboard-welcome .btn {
+    flex-shrink: 0;
+    width: auto
+}
+
+/* Summary cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 24px
+}
+
+.stat-card {
+    position: relative;
+    min-width: 0;
+    padding: 18px 20px;
+    overflow: hidden;
+    border: 1px solid var(--at-border);
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: var(--at-shadow)
+}
+
+.stat-card:before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--at-blue);
+    content: ""
+}
+
+.stat-card:nth-child(2):before {
+    background: var(--at-teal)
+}
+
+.stat-card:nth-child(3):before {
+    background: var(--at-green)
+}
+
+.stat-card:nth-child(4):before {
+    background: var(--at-amber)
+}
+
+.stat-card p {
+    color: var(--at-muted);
+    font-size: .84rem;
+    font-weight: 550
+}
+
+.stat-card h2 {
+    margin-top: 8px;
+    color: var(--at-ink);
+    font-size: 1.9rem;
+    line-height: 1.15;
+    letter-spacing: -.04em
+}
+
+/* Applications section */
+.applications-section,
+.application-form-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--at-border);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: var(--at-shadow)
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 20px
+}
+
+.section-heading h2,
+.application-form-section h2 {
+    margin-bottom: 5px;
+    font-size: 1.22rem;
+    font-weight: 750;
+    letter-spacing: -.025em
+}
+
+.filter-control {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 190px;
+    color: #475569;
+    font-size: .82rem;
+    font-weight: 650
+}
+
+.filter-control select {
+    min-width: 190px;
+    min-height: 42px;
+    cursor: pointer
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 38px 20px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 13px;
+    background: #f8fafc;
+    text-align: center
+}
+
+.empty-state h3 {
+    margin-bottom: 6px;
+    font-size: 1.05rem
+}
+
+.empty-state p {
+    max-width: 360px;
+    margin-bottom: 18px;
+    color: var(--at-muted);
+    font-size: .9rem
+}
+
+.empty-state .btn {
+    width: auto
+}
+
+/* Compact application cards */
+.applications-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0
+}
+
+.application-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-rows: auto auto;
+    align-content: start;
+    align-items: center;
+    gap: 8px 16px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    border: 1px solid #e0e8f2;
+    border-left: 4px solid var(--at-teal);
+    border-radius: 13px;
+    background: #fff;
+    transition: border-color .16s, box-shadow .16s
+}
+
+.application-card:hover {
+    border-color: #b8cbe0;
+    border-left-color: var(--at-teal);
+    box-shadow: 0 5px 14px #1e293b0e
+}
+
+.application-card-heading {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    overflow-wrap: anywhere
+}
+
+.application-card-meta {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0
+}
+
+.application-card-follow-up,
+.application-card-link,
+.application-card-notes {
+    grid-column: 1/-1;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere
+}
+
+.application-card-heading h3 {
+    margin: 0 0 2px;
+    font-size: 1rem;
+    font-weight: 750;
+    line-height: 1.3;
+    overflow-wrap: anywhere
+}
+
+.application-card-heading p,
+.application-card-notes {
+    margin: 0;
+    color: var(--at-muted);
+    font-size: .88rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere
+}
+
+.application-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px 12px;
+    margin: 0
+}
+
+.application-card-date {
+    color: #64748b;
+    font-size: .82rem
+}
+
+.application-card .status-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0;
+    padding: 3px 9px;
+    border: 1px solid #bfdbfe;
+    border-radius: 7px;
+    background: var(--at-soft-blue);
+    color: #1d4ed8;
+    font-size: .77rem;
+    font-weight: 700;
+    line-height: 1.4
+}
+
+.application-card-follow-up {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px 10px;
+    color: var(--at-muted);
+    font-size: .81rem
+}
+
+.follow-up-alert {
+    margin: 0;
+    color: #b45309;
+    font-size: .78rem;
+    font-weight: 700
+}
+
+.application-card-link {
+    width: fit-content;
+    color: var(--at-teal);
+    font-size: .84rem;
+    font-weight: 650;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere
+}
+
+.application-card-notes {
+    padding-top: 2px
+}
+
+.application-card-actions,
+.application-card .application-actions {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    min-width: 0
+}
+
+.application-card-actions button,
+.application-card .application-actions button {
+    width: auto;
+    min-height: 34px;
+    padding: 6px 11px;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    background: #fff;
+    color: #334155;
+    font-size: .82rem;
+    font-weight: 600
+}
+
+.application-card-actions button:hover,
+.application-card .application-actions button:hover {
+    border-color: #8cbac4;
+    background: #f0fdfa
+}
+
+/* Inline form, if used */
+.application-form-section {
+    margin-top: 24px;
+    scroll-margin-top: 24px
+}
+
+.application-form-section form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 18px;
+    margin-top: 20px
+}
+
+.application-form-section .form-group {
+    margin-bottom: 12px
+}
+
+.application-form-section .form-group:last-of-type,
+.application-form-section .form-actions,
+.application-form-section .form-message {
+    grid-column: 1/-1
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px
+}
+
+.form-actions .btn {
+    width: auto;
+    min-width: 120px
+}
+
+/* Add/edit modal */
+.modal-overlay,
+#application-form-section {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: #0f172a8f;
+    backdrop-filter: blur(4px);
+    overflow-y: auto
+}
+
+.modal-overlay[hidden],
+#application-form-section[hidden] {
+    display: none !important
+}
+
+.application-modal {
+    width: 100%;
+    max-width: 600px;
+    max-height: calc(100vh - 44px);
+    overflow-y: auto;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 24px 70px #0f172a38
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e8edf4
+}
+
+.modal-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--at-teal);
+    font-size: .7rem;
+    font-weight: 750;
+    letter-spacing: .1em
+}
+
+.modal-header h2 {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    font-weight: 750;
+    letter-spacing: -.035em
+}
+
+.modal-header p {
+    color: var(--at-muted);
+    font-size: .87rem
+}
+
+.modal-close {
+    display: grid;
+    flex: 0 0 36px;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 1.5rem;
+    line-height: 1
+}
+
+.modal-close:hover {
+    background: #eff6ff;
+    color: var(--at-blue)
+}
+
+.application-modal form,
+#application-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 14px
+}
+
+.application-modal .form-group,
+#application-form .form-group {
+    min-width: 0;
+    margin-bottom: 10px
+}
+
+.application-modal .form-group label,
+#application-form label {
+    font-size: .84rem
+}
+
+.application-modal .form-group input,
+.application-modal .form-group select,
+.application-modal .form-group textarea,
+#application-form input,
+#application-form select,
+#application-form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 41px;
+    padding: 9px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: var(--at-ink);
+    font-size: .9rem
+}
+
+.application-modal .form-group textarea,
+#application-form textarea {
+    min-height: 76px;
+    resize: vertical
+}
+
+.application-modal .full-width,
+.application-modal .form-actions,
+.application-modal .form-message,
+#application-form .form-actions,
+#application-form #application-message {
+    grid-column: 1/-1
+}
+
+.application-modal .form-actions {
+    justify-content: flex-end;
+    padding-top: 14px;
+    border-top: 1px solid #e8edf4
+}
+
+.application-modal .form-actions .btn {
+    width: auto;
+    min-width: 115px
+}
+
+/* Responsive */
+@media(max-width:900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .dashboard-container {
+        width: calc(100% - 36px);
+        padding-top: 26px
+    }
+
+    .dashboard-header {
+        padding-right: 20px;
+        padding-left: 20px
+    }
+}
+
+@media(max-width:600px) {
+    .dashboard-header {
+        min-height: 64px;
+        gap: 12px;
+        padding: 11px 15px
+    }
+
+    .brand {
+        gap: 8px;
+        font-size: 1.1rem
+    }
+
+    .brand-icon {
+        flex-basis: 35px;
+        width: 35px;
+        height: 35px;
+        border-radius: 10px
+    }
+
+    .dashboard-header .btn {
+        min-height: 37px;
+        padding: 8px 11px;
+        font-size: .82rem
+    }
+
+    .dashboard-container {
+        width: calc(100% - 28px);
+        padding: 22px 0 36px
+    }
+
+    .dashboard-welcome {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 20px
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 1.6rem
+    }
+
+    .dashboard-welcome .btn {
+        width: 100%
+    }
+
+    .stats-grid {
+        gap: 10px;
+        margin-bottom: 18px
+    }
+
+    .stat-card {
+        padding: 14px 12px;
+        border-radius: 12px
+    }
+
+    .stat-card p {
+        font-size: .76rem
+    }
+
+    .stat-card h2 {
+        margin-top: 7px;
+        font-size: 1.55rem
+    }
+
+    .applications-section,
+    .application-form-section {
+        padding: 17px 13px;
+        border-radius: 14px
+    }
+
+    .section-heading {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 13px;
+        margin-bottom: 16px
+    }
+
+    .filter-control,
+    .filter-control select {
+        width: 100%;
+        min-width: 0
+    }
+
+    .application-card {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        gap: 7px;
+        padding: 13px
+    }
+
+    .application-card-heading,
+    .application-card-meta,
+    .application-card-follow-up,
+    .application-card-link,
+    .application-card-notes,
+    .application-card-actions,
+    .application-card .application-actions {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
+        max-width: 100%
+    }
+
+    .application-card-meta {
+        margin: 0
+    }
+
+    .application-card-actions,
+    .application-card .application-actions {
+        margin-top: 3px
+    }
+
+    .application-card-actions button,
+    .application-card .application-actions button {
+        min-height: 32px;
+        padding: 6px 10px
+    }
+
+    .application-form-section form,
+    .application-modal form,
+    #application-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0
+    }
+
+    .application-form-section .form-group:last-of-type,
+    .application-form-section .form-actions,
+    .application-form-section .form-message,
+    .application-modal .full-width,
+    .application-modal .form-actions,
+    .application-modal .form-message,
+    #application-form .form-actions,
+    #application-form #application-message {
+        grid-column: 1
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .form-actions .btn,
+    .application-modal .form-actions .btn {
+        width: 100%
+    }
+
+    .auth-card {
+        padding: 27px 21px;
+        border-radius: 18px
+    }
+
+    .auth-heading h1 {
+        font-size: 1.5rem
+    }
+
+    .modal-overlay,
+    #application-form-section {
+        align-items: flex-end;
+        padding: 0
+    }
+
+    .application-modal {
+        max-width: none;
+        max-height: 92vh;
+        padding: 21px 17px;
+        border-radius: 18px 18px 0 0
+    }
+
+    .application-modal .form-actions {
+        flex-direction: column
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important
+    }
+}
+
+/* Final card height adjustment */
+.applications-list .application-card {
+    min-height: 0 !important;
+    padding-block: 8px !important;
+    grid-template-rows: auto;
+    align-content: center;
+}
+
+/* Password visibility toggle */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 52px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    border-radius: 6px;
+}
+
+/* Inline form validation */
+.field-feedback {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: var(--md-sys-color-error);
+}
+
+.form-group input:invalid:not(:placeholder-shown) {
+    border-color: var(--md-sys-color-error);
+}
